@@ -1,0 +1,204 @@
+
+import 'package:demoproject/constants/textstyle.dart';
+import 'package:flutter/material.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<String> offers = ["Offer1", "Offer2", "Offer3", "Offer4"];
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    print(size);
+
+    return Scaffold(
+      drawer: Drawer(),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Appbar"),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
+        height: size.height,
+        width: size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Our Latest offers",
+              style: titleStyle,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 10),
+                    height: 100,
+                    width: 250,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 10),
+                    height: 100,
+                    width: 250,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 10),
+                    height: 100,
+                    width: 250,
+                    color: Colors.red,
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Our Latest offers",
+              style: titleStyle,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+
+            Container(
+              height: 150,
+              child: ListView(
+                itemExtent: 300,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 10, bottom: 10),
+                    child: Center(
+                      child: Text(
+                        offers[0],
+                        style: TextStyle(color: Colors.white, fontSize: 22),
+                      ),
+                    ),
+                    color: Colors.red,
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 10, bottom: 10),
+                    height: 100,
+                    width: 250,
+                    color: Colors.red,
+                    child: Center(
+                      child: Text(
+                        offers[1],
+                        style: TextStyle(color: Colors.white, fontSize: 22),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 10, bottom: 10),
+                    height: 100,
+                    width: 250,
+                    color: Colors.red,
+                    child: Center(
+                      child: Text(
+                        offers[2],
+                        style: TextStyle(color: Colors.white, fontSize: 22),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+
+            Container(
+              height: 150,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: offers.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 10, bottom: 10),
+                      height: 100,
+                      width: 250,
+                      color: Colors.red,
+                      child: Center(
+                        child: Text(
+                          offers[index],
+                          style: TextStyle(color: Colors.white, fontSize: 22),
+                        ),
+                      ),
+                    );
+                  }),
+            )
+
+            // Text(
+            //   "Hello how are you.",
+            //   style: titleStyle
+            // ),
+            //
+            // SizedBox(height: 10,),
+            //
+            //
+            // Text(
+            //
+            //   "Performing hot reload...Syncing files to device sdk gphone64 x86 64..I/flutter (11924): Size(411.4, 867.4)",
+            //
+            //   style:subtitleStyle,
+            //   textAlign: TextAlign.justify,
+            //   textScaleFactor: 1.2,
+            //
+            // ),
+            // SizedBox(height: 10,),
+            //
+            // RichText(
+            //
+            //     text: TextSpan(
+            //       text: "Travel with",
+            //       style: titleStyle,
+            //       children: [
+            //
+            //         TextSpan(
+            //             text: " MilanHolidays",
+            //             style: TextStyle(color: Colors.red),
+            //           children: [
+            //             TextSpan(
+            //               text: "Hello"
+            //             )
+            //           ]
+            //         ),
+            //
+            //
+            //       ]
+            //     )
+            //
+            // ),
+            //
+            // Container(
+            //   height: 150,
+            //   width: size.width,
+            //  decoration: BoxDecoration(
+            //    gradient: LinearGradient(
+            //      colors: [
+            //
+            //        Colors.purple,
+            //        Colors.green
+            //      ]
+            //    )
+            //  ),
+            // ),
+            //
+          ],
+        ),
+      ),
+    );
+  }
+}
